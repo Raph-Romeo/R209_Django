@@ -4,10 +4,17 @@ répertoire templates/myfirstapp/, il faudra ajouter le chemin d'accès avant le
 du fichierdonc extends "myfirstapp/main.html" -->
 <!-- définition de ce que contiendra la balise title du head -->
 {% block title %}
-Bonjour
+Sealife
 {% endblock %}
 {% block content %}
 
 <h1> SEALIFE </h1>
+
+<ol>
+        {% for l in liste %}
+            <li> {{l}} date de parution {{l.date_parution|date:"d/m/Y"}} <a href="affiche/{{l.id}}"> afficher les détails </a> <a href="delete/{{l.id}}"> effacer </a>
+                <a href="update/{{l.id}}"> mise à jour </a></li>
+        {%endfor%}
+</ol>
 
 {% endblock %}

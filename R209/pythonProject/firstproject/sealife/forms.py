@@ -1,9 +1,9 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
-class LivreForm(ModelForm):
+class SpecieForm(ModelForm):
     class Meta:
-        model = models.Specie
+        model = models.Animal
         fields = ('type',
                   'specie',
                   'date_discovered',
@@ -13,8 +13,7 @@ class LivreForm(ModelForm):
                   'lifespan',
                   'depth',
                   'locations',
-                  'description',
-                  'image')
+                  'description')
         labels = {
             'Type': _('type'),
             'Specie': _('specie'),
@@ -24,6 +23,5 @@ class LivreForm(ModelForm):
             'Lifespan (years)': _('lifespan'),
             'Depth (m)': _('depth'),
             'Locations': _('locations'),
-            'Description': _('description'),
-            'Image': _('image')
+            'Description': _('description')
         }

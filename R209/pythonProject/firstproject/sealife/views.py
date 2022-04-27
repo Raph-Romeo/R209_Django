@@ -1,44 +1,56 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from .forms import SpecieForm
+from . import models
 
 # Create your views here.
-def bonjour(request):
-    nom = request.GET["nom"]
-    prenom = request.GET["prenom"]
-    nom = nom + " " + prenom
-    return render(request, "bonjour.html", {"nom":nom})
-
-def home(request):
-    return render(request, "home.html")
-
-def index(request):
-    return render(request, "index.html")
-
-from .forms import LivreForm
-from . import models
 
 def ajout(request):
     if request.method == "POST": # arrive en cas de retour sur cette page après une saisie invalide on récupère donc les données. Normalement nous ne devrions pas passer par ce chemin la pour le traitement des données
-        form = LivreForm(request)
+        form = SpecieForm(request)
         if form.is_valid(): # validation du formulaire.
-            livre = form.save() # sauvegarde dans la base
-            return render(request,"affiche.html",{"livre" : livre}) # envoie vers une page d'affichage du livre créé
+            Specie = form.save() # sauvegarde dans la base
+            return render(request,"affiche.html",{"Specie" : Specie}) # envoie vers une page d'affichage du livre créé
         else:
             return render(request,"ajout.html",{"form": form})
     else:
-        form = LivreForm() # création d'un formulaire vide
+        form = SpecieForm() # création d'un formulaire vide
         return render(request,"ajout.html",{"form" : form})
 
 def traitement(request):
-    lform = LivreForm(request.POST)
+    lform = SpecieForm(request.POST)
+    Specie = lform.save()
     if lform.is_valid():
-        livre = lform.save()
-        return render(request, "affiche.html", {"livre": livre})
+        return HttpResponseRedirect("/sealife/")
     else:
-        return render(request, "ajout.html", {"form": lform})
+        return render(request,"sealife/ajout.html",{"form": lform})
+
+
+def traitementupdate(request, id):
+    lform = SpecieForm(request.POST)
+    if lform.is_valid():
+        Specie = lform.save(commit=False)
+        Specie.id = id
+        Specie.save()
+        return HttpResponseRedirect("/sealife/")
+    else:
+        return render(request, "sealife/update.html", {"form": lform, "id": id})
+
+def home(request):
+    liste = list(models.Animal.objects.all())
+    return render(request, 'sealife/home.html', {'liste': liste})
+
+def delete(request, id):
+    Animal = models.Animal.objects.get(pk=id)
+    Animal.delete()
+    return HttpResponseRedirect("/sealife/")
+
 
 def affiche(request, id):
-    livre = models.Specie.objects.get(pk=id) # méthode pour récupérer les données dans la base avec un id donnée
-    return render(request,"affiche.html",{"livre": livre})
+    specie = models.Animal.indexes.get(pk=id)
+    return render(request,"sealife/affiche.html",{"specie" : specie})
 
-def update(request):
-    return render(request,"update.html")
+def update(request, id):
+    specie = models.Animal.objects.get(pk=id)
+    lform = SpecieForm(specie.dico())
+    return render(request, "sealife/update.html", {"form": lform,"id":id})
