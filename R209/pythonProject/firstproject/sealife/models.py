@@ -12,7 +12,8 @@ class Specie(models.Model): #déclare la classe Livre héritant de la classe Mod
     depth = models.CharField(max_length=100)
     locations = models.TextField(null = True, blank = True) # champs de type text long
     description = models.TextField(null = True, blank = True) # champs de type text long
+    image = models.ImageField(upload_to='images/')
 
     def __str__(self):
-        string = f"{self.type} {self.specie} discovered in {self.date_discovered}"
-        return string
+        name = f"{self.type} | {self.specie} discovered in {self.date_discovered}"
+        return name

@@ -1,3 +1,5 @@
+
+
 <!-- héritage du contenu du gabarit squelette main.hml -->
 {% extends "main.html" %} <!-- si le gabarit n'est pas dans templates mais dans le
 répertoire templates/myfirstapp/, il faudra ajouter le chemin d'accès avant le nom
@@ -7,10 +9,11 @@ du fichierdonc extends "myfirstapp/main.html" -->
 Bonjour
 {% endblock %}
 {% block content %}
-<form method="post" action="/bibliotheque/traitementupdate/{{livre.id}}">
+
+<form method="post" action="/sealife/traitement/">
 {% csrf_token %}
-{{ form.as_ul }}
-<input type="submit" value="envoyer␣les␣données"\>
+{{ form.as_ul }} <!-- permet d'afficher tous les champs sous forme d'une liste-->
+<input type="submit" value="envoyer les données"\>
 </form>
 
 {% endblock %}

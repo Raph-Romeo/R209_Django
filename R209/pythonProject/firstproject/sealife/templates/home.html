@@ -4,18 +4,10 @@ répertoire templates/myfirstapp/, il faudra ajouter le chemin d'accès avant le
 du fichierdonc extends "myfirstapp/main.html" -->
 <!-- définition de ce que contiendra la balise title du head -->
 {% block title %}
-Mon formulaire
+Bonjour
 {% endblock %}
 {% block content %}
-<div class='content'>
-<!-- les champs de formulaires -->
-<form action="/application/bonjour" method="get" />
-{% csrf_token %}
-<label for="nom"> Nom :</label>
-<input type="text" name="nom"/>
-<label style="margin-left:10px" for="prenom"> Prénom :</label>
-<input type="text" name="prenom"/>
-<input type="submit" value="envoyer"/>
-</form>
-</div>
+
+<h1> SEALIFE </h1>
+
 {% endblock %}
