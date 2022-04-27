@@ -3,12 +3,16 @@ from django.utils.translation import gettext_lazy as _
 from . import models
 class LivreForm(ModelForm):
     class Meta:
-        model = models.Livre
-        fields = ('titre', 'auteur', 'date_parution', 'nombre_pages','resume')
+        model = models.Specie
+        fields = ('type', 'specie', 'date_discovered','weight','size','weight','lifespan','depth','locations','description')
         labels = {
-        'titre' : _('Titre'),
-        'auteur' : _('Auteur') ,
-        'date_parution' : _('date␣de␣parution'),
-        'nombre_pages' : _('nombres␣de␣pages'),
-        'resume' : _('Résumé')
+        'type' : _('type'),
+        'specie' : _('specie'),
+        'date_discovered' : _('date_discovered'),
+        'size' : _('size'),
+        'weight': _('weight'),
+        'lifespan' : _('lifespan'),
+        'depth' : _('depth'),
+        'locations' : _('locations'),
+        'description' : _('description')
         }

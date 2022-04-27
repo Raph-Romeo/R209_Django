@@ -37,7 +37,7 @@ def traitement(request):
         return render(request, "ajout.html", {"form": lform})
 
 def affiche(request, id):
-    livre = models.Livre.objectq.get(pk=id) # méthode pour récupérer les données dans la base avec un id donnée
+    livre = models.Specie.objects.get(pk=id) # méthode pour récupérer les données dans la base avec un id donnée
     return render(request,"affiche.html",{"livre": livre})
 
 def update(request):

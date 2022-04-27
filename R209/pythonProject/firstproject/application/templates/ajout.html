@@ -13,7 +13,7 @@ Bonjour
 <form method="post" action="/application/traitement/">
 {% csrf_token %}
 {{ form.as_ul }} <!-- permet d'afficher tous les champs sous forme d'une liste-->
-<input type="submit" value="envoyer␣les␣données"\>
+<input type="submit" value="envoyer les données"\>
 </form>
 
 {% endblock %}
