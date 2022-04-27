@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
-class SpecieForm(ModelForm):
+class AnimalForm(ModelForm):
     class Meta:
         model = models.Animal
         fields = ('type',
@@ -25,3 +25,4 @@ class SpecieForm(ModelForm):
             'Locations': _('locations'),
             'Description': _('description')
         }
+        localized_fields = ('date_discovered',)

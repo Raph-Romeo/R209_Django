@@ -7,9 +7,7 @@ du fichierdonc extends "myfirstapp/main.html" -->
 Sealife
 {% endblock %}
 {% block content %}
-
-<h1> SEALIFE </h1>
-
+<h1 class="title"> Species: </h1>
 <ol>
         {% for l in liste %}
             <li> {{l}} date de parution {{l.date_parution|date:"d/m/Y"}} <a href="affiche/{{l.id}}"> afficher les détails </a> <a href="delete/{{l.id}}"> effacer </a>
