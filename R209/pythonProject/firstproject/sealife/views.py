@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import AnimalForm
 
-from . import  models
+from . import models
 # Create your views here.
 def ajout(request):
     if request.method == "POST":
@@ -28,6 +28,10 @@ def traitement(request):
 def home(request):
     specie = list(models.Animal.objects.all())
     return render(request, 'home.html', {'liste': specie})
+
+def category(request, id):
+    animal = list(models.Animal.objects.filter(Type=models.Animal.objects.get(pk=id).category))
+    return render(request,"category.html",{"animal" : animal})
 
 def affiche(request, id):
     specie = models.Animal.objects.get(pk=id)

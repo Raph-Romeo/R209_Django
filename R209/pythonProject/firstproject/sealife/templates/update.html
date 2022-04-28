@@ -7,10 +7,10 @@ du fichierdonc extends "myfirstapp/main.html" -->
 Sealife
 {% endblock %}
 {% block content %}
-<form method="post" action="/sealife/traitementupdate/{{livre.id}}">
+<form method="post" action="/sealife/traitementupdate/{{id}}">
 {% csrf_token %}
 {{ form.as_ul }}
-<input type="submit" value="envoyer␣les␣données"\>
+<input type="submit" value="envoyer les données"\>
 </form>
 
 {% endblock %}
