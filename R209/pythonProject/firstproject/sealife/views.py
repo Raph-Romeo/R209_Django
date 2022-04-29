@@ -60,9 +60,13 @@ def affiche(request, id):
     specie = models.Animal.objects.get(pk=id)
     return render(request,"affiche.html",{"specie" : specie})
 
+def search(request):
+    specie = models.Animal.objects.all()
+    return render(request,"search.html",{"liste" : specie})
+
 def afficheCategory(request, id):
     animal = models.Categories.objects.get(pk=id)
-    specie = list(models.Animal.objects.filter(type=models.Categories.objects.get(pk=id).name))
+    specie = list(models.Animal.objects.filter(category=models.Categories.objects.get(pk=id)))
     return render(request,"category.html",{'liste': specie,'animal': animal})
 
 def delete(request, id):

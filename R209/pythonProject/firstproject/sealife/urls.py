@@ -13,6 +13,7 @@ urlpatterns = [
     path('affiche/<int:id>/',views.affiche),
     path('afficheCategory/<int:id>/',views.afficheCategory),
     path('update/<int:id>/',views.update),
+    path('search/',views.search),
     path('updateCategory/<int:id>/',views.updateCategory),
     path("delete/<int:id>/",views.delete),
     path("deleteCategory/<int:id>",views.deleteCategory),

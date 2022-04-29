@@ -15,7 +15,10 @@ ol > li > a{margin:20px}
 form > li{display:flex;flex-direction:column;text-align:left;padding:20px}
 .image_animal{position:absolute;width:400px;height:250px;object-fit: cover;z-index:-1}
 
-.category_text{ color:black;text-shadow: white 0px 0px 10px;font-size:24px}
+.category_text{color:black;text-shadow: white 0px 0px 10px;font-size:24px}
 
+select,option{color:black}
+
+*[name="category"]{color:black}
 
 label{margin-left:20px}

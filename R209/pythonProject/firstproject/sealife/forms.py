@@ -4,7 +4,7 @@ from . import models
 class AnimalForm(ModelForm):
     class Meta:
         model = models.Animal
-        fields = ('type',
+        fields = ('category',
                   'specie',
                   'image',
                   'date_discovered',
@@ -16,7 +16,7 @@ class AnimalForm(ModelForm):
                   'locations',
                   'description')
         labels = {
-            'Type': _('type'),
+            'category': _('category'),
             'Specie': _('specie'),
             'Image': _('Image'),
             'Date discovered (mm/dd/yyyy)': _('date_discovered'),
