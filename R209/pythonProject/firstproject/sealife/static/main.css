@@ -13,5 +13,9 @@ ol > li > a{margin:20px}
 .categories{min-width:400px;height:250px;border:white solid 1px;margin:10px;display:flex;justify-content:center;align-items:center;flex-direction:column;}
 .actions{display:flex;justify-content:space-between;width:80%}
 form > li{display:flex;flex-direction:column;text-align:left;padding:20px}
+.image_animal{position:absolute;width:400px;height:250px;object-fit: cover;z-index:-1}
+
+.category_text{ color:black;text-shadow: white 0px 0px 10px;font-size:24px}
+
 
 label{margin-left:20px}

@@ -10,8 +10,12 @@ Sealife
 <h1 class="title"> Animals: </h1>
 <ol>
         {% for l in liste %}
-            <li class="categories"> {{l}} <div class="actions"> <a href="afficheCategory/{{l.id}}">SPECIES</a><a href="deleteCategory/{{l.id}}"> DELETE </a> <a href="updateCategory/{{l.id}}"> EDIT </a></div></li>
+            <li class="categories category_text"> <img class="image_animal" src="/sealife{{l.image.url}}"/> {{l}} <div class="actions"> <a class="category_text" href="afficheCategory/{{l.id}}">SPECIES</a><a class="category_text" href="deleteCategory/{{l.id}}"> DELETE </a> <a class="category_text" href="updateCategory/{{l.id}}"> EDIT </a></div></li>
         {%endfor%}
 </ol>
+
+{% if img_obj %}
+  <img src="{{img_obj.image.url}}" style="max-height:300px">
+{% endif %}
 
 {% endblock %}

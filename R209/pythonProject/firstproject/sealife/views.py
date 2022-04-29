@@ -5,6 +5,7 @@ from .forms import CategoryForm
 
 from . import models
 # Create your views here.
+
 def ajout(request):
     if request.method == "POST":
         form = AnimalForm(request)
@@ -39,9 +40,9 @@ def ajoutCategory(request):
 
 
 def traitementCategory(request):
-    form = CategoryForm(request.POST)
+    form = CategoryForm(request.POST,request.FILES)
     if form.is_valid():
-        category = form.save()
+        form.save()
         return HttpResponseRedirect("/sealife/")
     else:
         return render(request,"ajoutCategory.html",{"form": form})

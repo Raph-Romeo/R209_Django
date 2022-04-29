@@ -31,8 +31,10 @@ class CategoryForm(ModelForm):
     class Meta:
         model = models.Categories
         fields = ('name',
-                  'description')
+                  'description',
+                  'image')
         labels = {
             'Type': _('name'),
-            'Specie': _('description')
+            'Specie': _('description'),
+            'image': _('image'),
         }
