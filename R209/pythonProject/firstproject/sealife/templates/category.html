@@ -7,10 +7,11 @@ du fichierdonc extends "myfirstapp/main.html" -->
 Sealife
 {% endblock %}
 {% block content %}
-<h1 class="title"> Species: </h1>
+<h1 class="title"> Species of the {{animal.name}}: </h1>
+		<p>{{animal.description}}</p>
 <ol>
         {% for l in liste %}
-            <li class="categories"> {{l}} <a href="affiche/{{l.id}}"> DETAILS </a> <a href="delete/{{l.id}}"> DELETE </a> <a href="update/{{l.id}}"> EDIT </a></li>
+            <li class="categories"> {{l}} <a href="/sealife/affiche/{{l.id}}"> DETAILS </a> <a href="/sealife/delete/{{l.id}}"> DELETE </a> <a href="/sealife/update/{{l.id}}"> EDIT </a></li>
         {%endfor%}
 </ol>
 

@@ -26,3 +26,13 @@ class AnimalForm(ModelForm):
             'Description': _('description')
         }
         localized_fields = ('date_discovered',)
+
+class CategoryForm(ModelForm):
+    class Meta:
+        model = models.Categories
+        fields = ('name',
+                  'description')
+        labels = {
+            'Type': _('name'),
+            'Specie': _('description')
+        }

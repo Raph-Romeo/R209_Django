@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import AnimalForm
+from .forms import CategoryForm
 
 from . import models
 # Create your views here.
@@ -22,33 +23,79 @@ def traitement(request):
         specie = form.save()
         return HttpResponseRedirect("/sealife/")
     else:
-        return render(request,"sealife/ajout.html",{"form": form})
+        return render(request,"ajout.html",{"form": form})
+
+def ajoutCategory(request):
+    if request.method == "POST":
+        form = CategoryForm(request)
+        if form.is_valid():
+            category = form.save()
+            return HttpResponseRedirect("/sealife/")
+        else:
+            return render(request,"ajoutCategory.html",{"form": form})
+    else :
+        form = CategoryForm()
+        return render(request,"ajoutCategory.html",{"form" : form})
+
+
+def traitementCategory(request):
+    form = CategoryForm(request.POST)
+    if form.is_valid():
+        category = form.save()
+        return HttpResponseRedirect("/sealife/")
+    else:
+        return render(request,"ajoutCategory.html",{"form": form})
 
 
 def home(request):
-    specie = list(models.Animal.objects.all())
+    specie = list(models.Categories.objects.all())
     return render(request, 'home.html', {'liste': specie})
 
-def category(request, id):
-    animal = list(models.Animal.objects.filter(Type=models.Animal.objects.get(pk=id).category))
-    return render(request,"category.html",{"animal" : animal})
+def category(request):
+    specie = list(models.Animal.objects.all())
+    return render(request,"category.html",{'liste': specie})
 
 def affiche(request, id):
     specie = models.Animal.objects.get(pk=id)
     return render(request,"affiche.html",{"specie" : specie})
 
+def afficheCategory(request, id):
+    animal = models.Categories.objects.get(pk=id)
+    specie = list(models.Animal.objects.filter(type=models.Categories.objects.get(pk=id).name))
+    return render(request,"category.html",{'liste': specie,'animal': animal})
+
 def delete(request, id):
-    livre = models.Animal.objects.get(pk=id)
-    livre.delete()
+    specie = models.Animal.objects.get(pk=id)
+    specie.delete()
+    return HttpResponseRedirect("/sealife/")
+
+def deleteCategory(request, id):
+    Category = models.Categories.objects.get(pk=id)
+    Category.delete()
     return HttpResponseRedirect("/sealife/")
 
 def update(request, id):
-    livre = models.Animal.objects.get(pk=id)
-    lform = AnimalForm(livre.dico())
-    return render(request, "update.html", {"form": lform,"id":id})
+    Specie = models.Animal.objects.get(pk=id)
+    form = AnimalForm(Specie.dico())
+    return render(request, "update.html", {"form": form,"id":id})
+
+def updateCategory(request, id):
+    Category = models.Categories.objects.get(pk=id)
+    form = CategoryForm(Category.dico())
+    return render(request, "updateCategory.html", {"form": form,"id":id})
 
 def traitementupdate(request, id):
     form = AnimalForm(request.POST)
+    if form.is_valid():
+        specie = form.save(commit=False)
+        specie.id = id
+        specie.save()
+        return HttpResponseRedirect("/sealife/")
+    else:
+        return render(request, "update.html", {"form": form, "id": id})
+
+def traitementupdateCategory(request, id):
+    form = CategoryForm(request.POST)
     if form.is_valid():
         specie = form.save(commit=False)
         specie.id = id

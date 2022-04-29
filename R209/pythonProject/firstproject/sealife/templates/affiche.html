@@ -7,14 +7,13 @@ du fichierdonc extends "myfirstapp/main.html" -->
 Bonjour
 {% endblock %}
 {% block content %}
-<h1> {{specie.type}} </h1>
+<h1> {{specie.specie}} </h1>
 <p> This {{specie.type}} specie is known as the {{specie.specie}}. </p>
 <p> It was discovered on {{specie.date_discovered}}
 <h3> Details: </h3>
-<p> It is found at a depth of {{specie.depth}} meters! </p>
-<p> specifically in {{specie.locations}} </p>
-<p> It can weigh up to {{specie.weight}} kgs! </p>
-<p> It has a size of {{specie.size}} cm! </p>
+<p> It is found at a depth of {{specie.depth}} meters! And can be found in {{specie.locations}}</p>
+<p> It can weigh up to {{specie.weight}} kgs, and is estimated to reach an average size of {{specie.size}} cm.</p>
+<p> It can live up to {{specie.lifespan}} years. </p>
 <h3> Description: </h3>
 <p> {{specie.description}} </p>
 
