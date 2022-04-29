@@ -9,9 +9,10 @@ Sealife
 {% block content %}
 <h1 class="title"> Species of the {{animal.name}}: </h1>
 		<p>{{animal.description}}</p>
+		<style>	body{background:url(/sealife{{animal.image.url}});background-size:cover;backdrop-filter:blur(4px)} </style>
 <ol>
         {% for l in liste %}
-            <li class="categories"> {{l}} <a href="/sealife/affiche/{{l.id}}"> DETAILS </a> <a href="/sealife/delete/{{l.id}}"> DELETE </a> <a href="/sealife/update/{{l.id}}"> EDIT </a></li>
+            <li class="categories category_text"> <img class="image_animal" src="/sealife{{l.image.url}}"/> {{l}} <div class="actions"><a class="category_text" href="/sealife/affiche/{{l.id}}"> DETAILS </a> <a class="category_text" href="/sealife/delete/{{l.id}}"> DELETE </a> <a class="category_text" href="/sealife/update/{{l.id}}"> EDIT </a></div></li>
         {%endfor%}
 </ol>
 

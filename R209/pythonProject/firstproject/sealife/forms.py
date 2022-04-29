@@ -6,6 +6,7 @@ class AnimalForm(ModelForm):
         model = models.Animal
         fields = ('type',
                   'specie',
+                  'image',
                   'date_discovered',
                   'weight',
                   'size',
@@ -17,6 +18,7 @@ class AnimalForm(ModelForm):
         labels = {
             'Type': _('type'),
             'Specie': _('specie'),
+            'Image': _('Image'),
             'Date discovered (mm/dd/yyyy)': _('date_discovered'),
             'Size': _('size'),
             'Weight': _('weight'),

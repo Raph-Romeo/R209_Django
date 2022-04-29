@@ -19,7 +19,7 @@ def ajout(request):
         return render(request,"ajout.html",{"form" : form})
 
 def traitement(request):
-    form = AnimalForm(request.POST)
+    form = AnimalForm(request.POST,request.FILES)
     if form.is_valid():
         specie = form.save()
         return HttpResponseRedirect("/sealife/")
@@ -28,7 +28,7 @@ def traitement(request):
 
 def ajoutCategory(request):
     if request.method == "POST":
-        form = CategoryForm(request)
+        form = CategoryForm(request,request.FILES)
         if form.is_valid():
             category = form.save()
             return HttpResponseRedirect("/sealife/")
@@ -86,7 +86,7 @@ def updateCategory(request, id):
     return render(request, "updateCategory.html", {"form": form,"id":id})
 
 def traitementupdate(request, id):
-    form = AnimalForm(request.POST)
+    form = AnimalForm(request.POST,request.FILES)
     if form.is_valid():
         specie = form.save(commit=False)
         specie.id = id
@@ -96,7 +96,7 @@ def traitementupdate(request, id):
         return render(request, "update.html", {"form": form, "id": id})
 
 def traitementupdateCategory(request, id):
-    form = CategoryForm(request.POST)
+    form = CategoryForm(request.POST,request.FILES)
     if form.is_valid():
         specie = form.save(commit=False)
         specie.id = id
