@@ -19,7 +19,11 @@ Sealife
      <div class="content" id="about_content"> <h1 id="About"> About us </h1> </div>
      <div class="content"> <p id="about_text" class="about_text">We are a group of Marine Biologists who study life in the oceans, and sometimes the oceans themselves. We investigate the behavior and physiological processes of marine species, or the diseases and environmental conditions that affect them. They may also assess the impacts of human activities on marine life.</p><br><p id="about_text2" class="about_text"> If you love the sea, and the animals that live in it, this website is for you! <br> Our goal is to teach you all about the vast variety of species that embody our oceans.</p></div>
      <div class="content" id="Explore"> <h1 id="explore_text"> EXPLORE THE OCEAN </h1></div>
-     <div class="content last"> <h3 id="projects"> Here are some of the animals of the sea</h3> </div>
+       {% if count > 0 %}
+     <div class="content last"> <h3> Here are some of the animals of the sea</h3> </div>
+       {% else %}
+       <div class="content last"> <h3> Whoops. There doesn't appear to be anything here.</h3> </div>
+       {% endif %}
       <ol>
         {% for l in liste %}
             <li class="categories category_text"><h2 class="name_animal"> {{l}} </h2><a class="image_animal" href="afficheCategory/{{l.id}}"><img class="image_animal" src="/sealife{{l.image.url}}"/></a> {{l}} <div class="actions"><a class="category_text" href="updateCategory/{{l.id}}"> ✏️ </a><a class="category_text" href="deleteCategory/{{l.id}}"> ❌ </a></div></li>

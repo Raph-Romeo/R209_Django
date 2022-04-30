@@ -49,8 +49,9 @@ def traitementCategory(request):
 
 
 def home(request):
-    specie = list(models.Categories.objects.all())
-    return render(request, 'home.html', {'liste': specie})
+    animals = list(models.Categories.objects.all())
+    animal_count = models.Categories.objects.all().count()
+    return render(request, 'home.html', {'liste': animals,'count':animal_count})
 
 def category(request):
     specie = list(models.Animal.objects.all())
@@ -62,7 +63,8 @@ def affiche(request, id):
 
 def search(request):
     specie = models.Categories.objects.all()
-    return render(request,"search.html",{"liste" : specie})
+    animal_count = models.Categories.objects.all().count()
+    return render(request,"search.html",{"liste" : specie,"count":animal_count})
 
 def afficheCategory(request, id):
     animal = models.Categories.objects.get(pk=id)

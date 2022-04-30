@@ -1,8 +1,4 @@
-<!-- héritage du contenu du gabarit squelette main.hml -->
-{% extends "main.html" %} <!-- si le gabarit n'est pas dans templates mais dans le
-répertoire templates/myfirstapp/, il faudra ajouter le chemin d'accès avant le nom
-du fichierdonc extends "myfirstapp/main.html" -->
-<!-- définition de ce que contiendra la balise title du head -->
+{% extends "main.html" %}
 {% block title %}
 Sealife
 {% endblock %}
@@ -11,6 +7,6 @@ Sealife
 {% csrf_token %}
 {{ form.as_ul }}
 <input type="submit" value="UPDATE">
+<style>body{background:url(/sealife/media/wood.jpg)}</style>
 </form>
-
 {% endblock %}

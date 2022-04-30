@@ -1,25 +1,20 @@
-
-
-<!-- héritage du contenu du gabarit squelette main.hml -->
-{% extends "main.html" %} <!-- si le gabarit n'est pas dans templates mais dans le
-répertoire templates/myfirstapp/, il faudra ajouter le chemin d'accès avant le nom
-du fichierdonc extends "myfirstapp/main.html" -->
-<!-- définition de ce que contiendra la balise title du head -->
+{% extends "main.html" %}
 {% block title %}
 Sealife
 {% endblock %}
 {% block content %}
 {% if count > 0 %}
 <form method="post" action="/sealife/traitement/" enctype="multipart/form-data">
-    <h1> Add a Specie </h1>
+<h1 class="add_title"> Add a Specie </h1>
 {% csrf_token %}
-{{ form.as_ul }} <!-- permet d'afficher tous les champs sous forme d'une liste-->
+{{ form.as_ul }}
 <input type="submit" value="SEND DATA">
+    <style>body{background:url(/sealife/media/wood.jpg)}</style>
 </form>
 {% else %}
 <form>
 <p class="error"> You must first add an animal before adding a specie type! <br> <a href="/sealife/ajoutCategory"> Click here to add an animal! </a></p>
+    <style>body{background:url(/sealife/media/wood.jpg)}</style>
 </form>
 {% endif %}
-
 {% endblock %}
