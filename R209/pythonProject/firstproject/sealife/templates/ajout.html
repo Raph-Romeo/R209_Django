@@ -9,11 +9,16 @@ du fichierdonc extends "myfirstapp/main.html" -->
 Sealife
 {% endblock %}
 {% block content %}
-
+{% if count > 0 %}
 <form method="post" action="/sealife/traitement/" enctype="multipart/form-data">
 {% csrf_token %}
 {{ form.as_ul }} <!-- permet d'afficher tous les champs sous forme d'une liste-->
 <input type="submit" value="envoyer les données"\>
 </form>
+{% else %}
+<form>
+<p class="error"> You must first add an animal before adding a specie type! <br> <a href="/sealife/ajoutCategory"> Click here to add an animal! </a></p>
+</form>
+{% endif %}
 
 {% endblock %}

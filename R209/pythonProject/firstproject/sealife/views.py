@@ -16,7 +16,7 @@ def ajout(request):
             return render(request,"ajout.html",{"form": form})
     else :
         form = AnimalForm()
-        return render(request,"ajout.html",{"form" : form})
+        return render(request,"ajout.html",{"form" : form, "count": models.Categories.objects.all().count()})
 
 def traitement(request):
     form = AnimalForm(request.POST,request.FILES)
@@ -72,12 +72,12 @@ def afficheCategory(request, id):
 def delete(request, id):
     specie = models.Animal.objects.get(pk=id)
     specie.delete()
-    return HttpResponseRedirect("/sealife/")
+    return HttpResponseRedirect("/sealife/#Explore")
 
 def deleteCategory(request, id):
     Category = models.Categories.objects.get(pk=id)
     Category.delete()
-    return HttpResponseRedirect("/sealife/")
+    return HttpResponseRedirect("/sealife/#Explore")
 
 def update(request, id):
     Specie = models.Animal.objects.get(pk=id)

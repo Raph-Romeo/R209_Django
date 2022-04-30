@@ -1,26 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html id="html" lang="fr">
 <head>
 {%load static%}
 <link rel="stylesheet" href="{%static 'main.css' %}" type="text/css">
-<title>{% block title %} Mon Site {% endblock %} </title>
+<title>{% block title %} Sealife {% endblock %} </title>
 </head>
 <body>
-<aside id="sidebar">
-<h1 class="main_title">SEALIFE</h1>
-{% block sidebar %}
-<ul>
-<li><a href="/sealife/">Home</a></li>
-<li><a href="/sealife/search">Search</a></li>
-<li><a href="/sealife/ajoutCategory">Add Animal</a></li>
-<li><a href="/sealife/ajout">Add Specie</a></li>
-</ul>
-{% endblock %}
-</aside>
-<div id="content">
+<nav id="nav"><a></a><a class="nav_link" href="/sealife/" style="font-weight:500">Home</a><a class="nav_link" href="/sealife/#Explore" style="font-weight:500">Explore</a><a class="nav_link" href="/sealife/ajoutCategory" style="font-weight:500">Add Animal</a> <a class="nav_link" href="/sealife/ajout" style="font-weight:500">Add Specie</a> </nav>
+
 {% block content %}
-<h1> bloc principal </h1>
 {% endblock %}
-</div>
+
+<div id="footer" class="content footer"><h3 class="footer_text"> Goodbye </h3><div class="sub_footer">  <a class="social_link_href" href="mailto:pro.raphaelromeo1@gmail.com"><div class="social_link"></div></a><a class="social_link_href" href="top"><div class="social_link"></div></a><a class="social_link_href" target="blank_" href="https://www.instagram.com/raphr03/"><div class="social_link"></div></a> </div> <div class="sub_footer"> <h3 class="footer_text" style="opacity:25%"> Raphaël Romeo @ 2022 </h3></div></div>
 </body>
 </html>

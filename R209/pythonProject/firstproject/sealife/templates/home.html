@@ -1,17 +1,32 @@
-<!-- héritage du contenu du gabarit squelette main.hml -->
-{% extends "main.html" %} <!-- si le gabarit n'est pas dans templates mais dans le
-répertoire templates/myfirstapp/, il faudra ajouter le chemin d'accès avant le nom
-du fichierdonc extends "myfirstapp/main.html" -->
-<!-- définition de ce que contiendra la balise title du head -->
+﻿{% extends "main.html" %}
 {% block title %}
 Sealife
 {% endblock %}
 {% block content %}
-<h1 class="title"> Animals: </h1>
-<ol>
+   <h1 id="t1" class="title">Hello</h1>
+   <h2 id="scroll_indicator" class="scroll_indicator"> Scroll down <br> ▽ </h2>
+   <div class="water">
+    <div class="bubble" id="b1"></div>
+    <div class="bubble" id="b2"></div>
+    <div class="bubble" id="b3"></div>
+    <div class="bubble" id="b4"></div>
+    <div class="bubble" id="b5"></div>
+    <div class="bubble" id="b6"></div>
+    <img id="fish" class="fish" src="/sealife/media/fish.png"/>
+   </div>
+   <div class="section" id="section">
+     <div class="content"> <h1 class="SectionTitle" id="PageTitle"> Raphael Romeo </h1><h2 class="Subtitle"> SEALIFE </h2><img class="profile" src="/sealife/media/profile.png"/><h3>since 2021</h3></div>
+     <div class="content" id="about_content"> <h1 id="About"> About us </h1> </div>
+     <div class="content"> <p id="about_text" class="about_text">We are a group of Marine Biologists who study life in the oceans, and sometimes the oceans themselves. We investigate the behavior and physiological processes of marine species, or the diseases and environmental conditions that affect them. They may also assess the impacts of human activities on marine life.</p><br><p id="about_text2" class="about_text"> If you love the sea, and the animals that live in it, this website is for you! <br> Our goal is to teach you all about the vast variety of species that embody our oceans.</p></div>
+     <div class="content" id="Explore"> <h1 id="explore_text"> EXPLORE THE SEA </h1></div>
+     <div class="content last"> <h3 id="projects"> Here are some of the animals of the sea</h3> </div>
+     <ol>
         {% for l in liste %}
-            <li class="categories category_text"> <img class="image_animal" src="/sealife{{l.image.url}}"/> {{l}} <div class="actions"> <a class="category_text" href="afficheCategory/{{l.id}}">SPECIES</a><a class="category_text" href="deleteCategory/{{l.id}}"> DELETE </a> <a class="category_text" href="updateCategory/{{l.id}}"> EDIT </a></div></li>
+            <li class="categories category_text"> <a class="image_animal" href="afficheCategory/{{l.id}}"><img class="image_animal" src="/sealife{{l.image.url}}"/></a> {{l}} <div class="actions"><a class="category_text" href="deleteCategory/{{l.id}}"> DELETE </a> <a class="category_text" href="updateCategory/{{l.id}}"> EDIT </a></div></li>
         {%endfor%}
-</ol>
-
+    </ol>
+    </div>
+   </div>
+  {%load static%}
+  <script src="{%static 'script.js' %}"></script>
 {% endblock %}
