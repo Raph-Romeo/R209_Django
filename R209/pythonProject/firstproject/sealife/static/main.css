@@ -1,12 +1,11 @@
    *{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin:0px;font-weight:1;}
    html{overflow-x:hidden;}
    body{overflow-x:hidden;background:transparent;min-height:100vh;display:flex;align-items:center;flex-direction:column;position:relative}
-   nav{position:fixed;top:0px;width:100%;display:flex;}
+   nav{position:fixed;top:0px;width:100%;display:flex;background:white;border-bottom:1px black solid;z-index:1}
    a{color:white}
    .mail_form{width:500px;height:700px;display:flex;margin:20px;flex-direction:column;justify-content:center;box-shadow:gray 0px 2px 10px;align-items:center;}
    input{width:75%;}
    input:nth-child(2){height:200px}
-   .footer{width:100%}
    #contact_me{display:flex;justify-content:center;align-items:center;flex-direction:column;}
    .project_title{margin-top:50px;color:#342f40;font-size:2.5em}
    .bubble{filter:blur(2px);background:#006699;opacity:40%;width:50px;height:50px;border-radius:50%;margin:2px;border:1px black solid}
@@ -38,7 +37,7 @@
    .content:nth-child(4){grid-column:1/7;border-top: 1px #342f40 solid;display:flex;align-items:center;}
    #explore_text{padding-left:30px;font-size:2.6em;color:#342f40}
    .border_contact{width:80%;margin-top:-130vh;position:absolute}
-   .footer{background:#272727}
+   .footer{width:100%;padding:0;background:#272727}
    .last{grid-column:1/7;text-align:center}
    @media (min-width:1200px){
     .section{grid-template-rows:500px 200px auto 250px 150px auto 500px auto auto;}
@@ -110,15 +109,29 @@
    @keyframes center2{0%{transform:translateX(0vw)}100%{transform:translateX(100vw)}}
    @keyframes centerY{0%{transform:translateY(0vh)}100%{transform:translateY(30vh)}}
 
-ol{transform:scale(0.9);width:auto;list-style:none;display:flex;flex-wrap:wrap;justify-content:center;grid-column:1/7;border-bottom:1px solid #342f40;padding-bottom:150px}
+ol{transform:scale(0.9);width:auto;list-style:none;display:flex;flex-wrap:wrap;justify-content:center;grid-column:1/7;border-bottom:1px solid #342f40;padding-bottom:150px;}
 ol > a > li > a{margin:20px;}
-.categories{min-width:400px;height:250px;border:1px solid #342f40;margin:10px;display:flex;justify-content:center;align-items:center;flex-direction:column;}
+.categories{border-radius:5px;min-width:400px;height:250px;border:1px solid #342f40;margin:10px;display:flex;justify-content:center;align-items:center;flex-direction:column;}
+.nobg{background:none}
 
+.actions{display:flex;justify-content:flex-end;width:400px;position:absolute;pointer-events:none;height:250px;}
+.actions > a{pointer-events:all;text-decoration:none;margin:5px;height:15px}
+.name_animal{position:absolute;color:white;text-shadow:0px 0px 5px black;z-index:1;pointer-events:none;font-size:32px}
+.actions > a:hover{font-size:20px}
+.show_title{font-size:64px;text-shadow:0px 0px 5px white}
 
-.actions{display:flex;justify-content:space-between;width:80%}
+input{width:75%;height:40px;font-size:25px;}
+input:nth-child(2){height:40px;font-size:25px;}
+textarea{width:75%;height:60px;font-size:25px;}
+select{width:60%;font-size:25px;}
+input[type="file"]{height:40px;font-size:25px;}
+input[type="submit"]{width:20%}
+
+.affiche > ol{min-height:80vh;}
 
 .error{padding-left:30px;font-size:2.6em;color:#ff0000;text-align:center}
 .error > a{color:#ff6000}
-form > li{display:flex;flex-direction:column;text-align:left;padding:20px;}
-form{min-height:90vh;margin-top:100px;background:#EEE;width:100%;padding:15px}
+.affiche{min-height:100vh;width:100%;transform:scale(0.9);margin-top:40px}
+form > li{display:flex;flex-direction:column;text-align:left;padding:20px;align-items:center}
+form{flex-wrap:wrap;min-height:80vh;margin-top:100px;background:#EEE;width:100%;padding:15px;width:90%;border-radius:15px;box-shadow:5px 5px 5px gray;margin-bottom:40px;display:flex;flex-direction:column;align-items:center;}
 .image_animal{position:absolute;width:400px;height:250px;object-fit: cover;}

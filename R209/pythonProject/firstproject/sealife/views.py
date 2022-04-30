@@ -11,7 +11,7 @@ def ajout(request):
         form = AnimalForm(request)
         if form.is_valid():
             specie = form.save()
-            return HttpResponseRedirect("/sealife/")
+            return HttpResponseRedirect("/sealife/search")
         else:
             return render(request,"ajout.html",{"form": form})
     else :
@@ -22,7 +22,7 @@ def traitement(request):
     form = AnimalForm(request.POST,request.FILES)
     if form.is_valid():
         specie = form.save()
-        return HttpResponseRedirect("/sealife/")
+        return HttpResponseRedirect("/sealife/search")
     else:
         return render(request,"ajout.html",{"form": form})
 
@@ -31,7 +31,7 @@ def ajoutCategory(request):
         form = CategoryForm(request,request.FILES)
         if form.is_valid():
             category = form.save()
-            return HttpResponseRedirect("/sealife/")
+            return HttpResponseRedirect("/sealife/search")
         else:
             return render(request,"ajoutCategory.html",{"form": form})
     else :
@@ -43,7 +43,7 @@ def traitementCategory(request):
     form = CategoryForm(request.POST,request.FILES)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/sealife/")
+        return HttpResponseRedirect("/sealife/search")
     else:
         return render(request,"ajoutCategory.html",{"form": form})
 
@@ -61,7 +61,7 @@ def affiche(request, id):
     return render(request,"affiche.html",{"specie" : specie})
 
 def search(request):
-    specie = models.Animal.objects.all()
+    specie = models.Categories.objects.all()
     return render(request,"search.html",{"liste" : specie})
 
 def afficheCategory(request, id):
@@ -72,12 +72,12 @@ def afficheCategory(request, id):
 def delete(request, id):
     specie = models.Animal.objects.get(pk=id)
     specie.delete()
-    return HttpResponseRedirect("/sealife/#Explore")
+    return HttpResponseRedirect("/sealife/search")
 
 def deleteCategory(request, id):
     Category = models.Categories.objects.get(pk=id)
     Category.delete()
-    return HttpResponseRedirect("/sealife/#Explore")
+    return HttpResponseRedirect("/sealife/search")
 
 def update(request, id):
     Specie = models.Animal.objects.get(pk=id)
@@ -95,7 +95,7 @@ def traitementupdate(request, id):
         specie = form.save(commit=False)
         specie.id = id
         specie.save()
-        return HttpResponseRedirect("/sealife/")
+        return HttpResponseRedirect("/sealife/search")
     else:
         return render(request, "update.html", {"form": form, "id": id})
 
@@ -105,6 +105,6 @@ def traitementupdateCategory(request, id):
         specie = form.save(commit=False)
         specie.id = id
         specie.save()
-        return HttpResponseRedirect("/sealife/")
+        return HttpResponseRedirect("/sealife/search")
     else:
         return render(request, "update.html", {"form": form, "id": id})

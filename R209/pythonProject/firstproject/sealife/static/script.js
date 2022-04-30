@@ -13,7 +13,8 @@ window.addEventListener("load", function(){
    var projects_scroll_height = 0
    var projects_scroll_pos = 0
    var soi = 0
-   
+   document.getElementById("nav").style.background="none"
+   document.getElementById("nav").style.borderBottom="none"
 
    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  		scroll_indicator.innerHTML= "SWIPE UP";

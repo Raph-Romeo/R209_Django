@@ -7,13 +7,14 @@ du fichierdonc extends "myfirstapp/main.html" -->
 Sealife
 {% endblock %}
 {% block content %}
-<h1 class="title"> Species of the {{animal.name}}: </h1>
-		<p>{{animal.description}}</p>
-		<style>	body{background:url(/sealife{{animal.image.url}});background-size:cover;backdrop-filter:blur(4px)} </style>
+<div class="affiche">
+<h1 class="show_title"> Species of the {{animal.name}}: </h1>
+		<p>Description: {{animal.description}}</p>
+		<style>	ol{background:url(/sealife{{animal.image.url}});background-size:cover;backdrop-filter:blur(4px);border-radius:5px} </style>
 <ol>
         {% for l in liste %}
-            <li class="categories category_text"> <img class="image_animal" src="/sealife{{l.image.url}}"/> {{l}} <div class="actions"><a class="category_text" href="/sealife/affiche/{{l.id}}"> DETAILS </a> <a class="category_text" href="/sealife/delete/{{l.id}}"> DELETE </a> <a class="category_text" href="/sealife/update/{{l.id}}"> EDIT </a></div></li>
+            <li class="categories category_text"><h2 class="name_animal"> {{l}} </h2><a class="image_animal" href="/sealife/affiche/{{l.id}}"><img class="image_animal" src="/sealife{{l.image.url}}"/></a> {{l}} <div class="actions"><a class="category_text" href="/sealife/update/{{l.id}}"> ✏️ </a><a class="category_text" href="/sealife/delete/{{l.id}}"> ❌ </a></div></li>
         {%endfor%}
 </ol>
-
+</div>
 {% endblock %}
