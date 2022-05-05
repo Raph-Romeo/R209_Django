@@ -16,16 +16,16 @@ class AnimalForm(ModelForm):
                   'locations',
                   'description')
         labels = {
-            'category': _('category'),
-            'Specie': _('specie'),
-            'Image': _('Image'),
-            'Date discovered (mm/dd/yyyy)': _('date_discovered'),
-            'Size': _('size'),
-            'Weight': _('weight'),
-            'Lifespan (years)': _('lifespan'),
-            'Depth (m)': _('depth'),
-            'Locations': _('locations'),
-            'Description': _('description')
+            'category': _('Animal'),
+            'specie': _('Specie'),
+            'image': _('Image'),
+            'date_discovered': _('Date discovered (yyyy-mm-dd)'),
+            'size': _('Size (cm)'),
+            'weight': _('Weight (kg)'),
+            'lifespan': _('Lifespan (years)'),
+            'depth': _('Depth (m)'),
+            'locations': _('Locations'),
+            'description': _('Description')
         }
         localized_fields = ('date_discovered',)
 

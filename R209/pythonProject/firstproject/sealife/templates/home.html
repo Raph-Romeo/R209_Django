@@ -26,7 +26,7 @@ Sealife
        {% endif %}
       <ol>
         {% for l in liste %}
-            <li class="categories category_text"><h2 class="name_animal"> {{l}} </h2><a class="image_animal" href="afficheCategory/{{l.id}}"><img class="image_animal" src="/sealife{{l.image.url}}"/></a> {{l}} <div class="actions"><a class="category_text" href="updateCategory/{{l.id}}"> ✏️ </a><a class="category_text" href="deleteCategory/{{l.id}}"> ❌ </a></div></li>
+            <li class="categories category_text"><h4 class="name_animal"> {{l}} </h4><a class="image_animal" href="afficheCategory/{{l.id}}"><img class="image_animal" src="/sealife{{l.image.url}}"/></a> {{l}} <div class="actions"><a class="category_text" href="updateCategory/{{l.id}}"> ✏️ </a><a class="category_text" href="deleteCategory/{{l.id}}"> ❌ </a></div></li>
         {%endfor%}
       </ol>
     </div>
