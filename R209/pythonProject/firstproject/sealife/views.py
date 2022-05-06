@@ -59,7 +59,9 @@ def category(request):
 
 def affiche(request, id):
     specie = models.Animal.objects.get(pk=id)
-    return render(request,"affiche.html",{"specie" : specie})
+    species = list(models.Animal.objects.filter(category=models.Animal.objects.get(pk=id).category))
+    count = models.Animal.objects.filter(category=models.Animal.objects.get(pk=id).category).count()
+    return render(request,"affiche.html",{"specie" : specie,"liste": species,"count": count})
 
 def search(request):
     specie = models.Categories.objects.all()

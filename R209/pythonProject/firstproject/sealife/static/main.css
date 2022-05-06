@@ -130,6 +130,11 @@ input[type="submit"]{width:20%;background:#d79f02;border:none;border-radius:5px;
 .affiche > ol{min-height:80vh;margin-top:20px;}
 .add_title{font-size:2.6em}
 
+.specie_name{text-align:center;}
+.specie_image{width:500px;height:auto;border:black solid 1px;border-radius:5px}
+.affiche_specie{min-height:100vh;width:90%;margin-top:80px;margin-bottom:80px;display:flex;align-items:center;flex-direction:column;background:#EEE;border-radius:5px;border-bottom:1px black solid}
+.affiche_specie > *{margin-top:20px}
+.affiche_specie > element{margin-top:50px;}
 
 .error{padding-left:30px;font-size:2.6em;text-align:center}
 .error > a{color:black}
@@ -137,3 +142,8 @@ input[type="submit"]{width:20%;background:#d79f02;border:none;border-radius:5px;
 form > li{display:flex;flex-direction:column;text-align:left;padding:10px;align-items:center}
 form{flex-wrap:wrap;min-height:80vh;margin-top:100px;background:url(../../media/paper.jpg);width:100%;padding:15px;width:90%;border-radius:15px;margin-bottom:40px;display:flex;flex-direction:column;align-items:center;}
 .image_animal{position:absolute;width:400px;height:250px;object-fit: cover;}
+
+element > ol{border-bottom:none;padding-left:0;padding-top:40px;}
+element{padding:50px;border-top:1px solid black;margin-top:50px;}
+
+#footer{height:auto;padding:0}
