@@ -140,7 +140,7 @@ input[type="submit"]{width:20%;background:#d79f02;border:none;border-radius:5px;
 .error > a{color:black}
 .affiche{min-height:100vh;width:90%;margin-top:80px;margin-bottom:80px;}
 form > li{display:flex;flex-direction:column;text-align:left;padding:10px;align-items:center}
-form{flex-wrap:wrap;min-height:80vh;margin-top:100px;background:url(../../media/paper.jpg);width:100%;padding:15px;width:90%;border-radius:15px;margin-bottom:40px;display:flex;flex-direction:column;align-items:center;}
+form{flex-wrap:wrap;min-height:80vh;margin-top:100px;background:radial-gradient(#999, transparent);width:100%;padding:15px;width:90%;border-radius:15px;margin-bottom:40px;display:flex;flex-direction:column;align-items:center;}
 .image_animal{position:absolute;width:400px;height:250px;object-fit: cover;}
 
 element > ol{border-bottom:none;padding-left:0;padding-top:40px;}
