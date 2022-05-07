@@ -9,8 +9,9 @@ Sealife - {{animal.name}}
 {% block content %}
 <div class="affiche">
 <h1 class="show_title"> Species of the {{animal.name}}: </h1>
-		<p>Description: {{animal.description}}</p>
-		<style>	ol{background:url(/sealife{{animal.image.url}});background-size:cover;border-radius:5px;backdrop-filter:blur(4px)} </style>
+        <h2>Description: </h2>
+		<p>{{animal.description}}</p>
+		<style>	ol{background:url(/sealife{{animal.image.url}});background-size:cover;border-radius:5px;background-attachment:fixed;} </style>
 <ol>
         {% for l in liste %}
             <li class="categories category_text"><h4 class="name_animal"> {{l}} </h4><a class="image_animal" href="/sealife/affiche/{{l.id}}"><img class="image_animal" src="/sealife{{l.image.url}}"/></a> {{l}} <div class="actions"><a class="category_text" href="/sealife/update/{{l.id}}"> ✏️ </a><a class="category_text" href="/sealife/delete/{{l.id}}"> ❌ </a></div></li>

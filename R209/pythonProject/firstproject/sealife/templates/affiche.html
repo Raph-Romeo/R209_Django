@@ -18,8 +18,8 @@ Sealife - {{species.species}}
 <p> It can live up to {{species.lifespan}} years. </p>
 <h1> Description: </h1>
 <p> {{species.description}} </p>
-{% if count > 1 %}
 <element>
+{% if count > 1 %}
 <h1> View other species of the {{species.category}}: </h1>
     <ol>
         {% for l in liste %}
@@ -28,8 +28,9 @@ Sealife - {{species.species}}
             {% endif %}
         {%endfor%}
     </ol>
-</element>
 {% endif %}
+<h1><a href="/sealife/search" class="other_link"> Click here to view other Animals </a></h1>
+</element>
 </div>
 
 {% endblock %}

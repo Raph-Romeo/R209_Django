@@ -78,7 +78,7 @@
      .content:nth-child(11){padding-left:0px;}
      .nav-link:nth-child(1){margin-left:1fr}
      .nav_link{font-size:2.5em;text-align:center}
-     nav{display:grid;justify-content:center;grid-template-columns: 10px 1fr 1fr 1fr 1fr 10px;}
+     nav{display:grid;justify-content:center;grid-template-columns: 10px 1fr 1fr 1.5fr 1.5fr 10px;}
      .project_title{text-align:center;}
      .footer_text{width:auto}
      #contact_link_id{text-align:center}
@@ -112,7 +112,7 @@
 ol{width:auto;list-style:none;display:flex;flex-wrap:wrap;justify-content:center;grid-column:1/7;border-bottom:1px solid #342f40;padding-bottom:150px;}
 ol > a > li > a{margin:20px;}
 .categories{border-radius:5px;min-width:400px;height:250px;border:1px solid #342f40;margin:10px;display:flex;justify-content:center;align-items:center;flex-direction:column;}
-.nobg{background:none}
+.nobg{background:none;padding-bottom:0px}
 
 .actions{display:flex;justify-content:flex-end;width:400px;position:absolute;pointer-events:none;height:250px;}
 .actions > a{pointer-events:all;text-decoration:none;margin:5px;height:15px;opacity:40%}
@@ -127,7 +127,9 @@ select{width:150%;font-size:25px;}
 input[type="file"]{height:40px;font-size:25px;color:white;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 input[type="submit"]{width:20%;background:#303060;color:white;border:none;border-radius:5px;border:1px solid #222;font-family:arial}
 
-.affiche > ol{min-height:80vh;margin-top:20px;}
+.affiche > ol{min-height:80vh;margin-top:20px;width:90%;}
+.affiche > h1 , .affiche > p{padding-right:10%;padding-left:10%}
+.affiche > h1{padding-bottom:20px}
 .add_title{font-size:2.6em}
 
 .specie_name{text-align:center;}
@@ -139,12 +141,14 @@ input[type="submit"]{width:20%;background:#303060;color:white;border:none;border
 
 .error{padding-left:30px;font-size:2.6em;text-align:center}
 .error > a{color:black}
-.affiche{min-height:100vh;width:90%;margin-top:80px;margin-bottom:80px;}
+.affiche{min-height:100vh;width:100%;margin-top:80px;margin-bottom:80px;display:flex;flex-direction:column;align-items:center}
 form > li{display:flex;flex-direction:column;text-align:left;padding:10px;align-items:center}
 form{flex-wrap:wrap;min-height:80vh;margin-top:100px;background:radial-gradient(#999, transparent);width:100%;padding:15px;width:90%;border-radius:15px;margin-bottom:40px;display:flex;flex-direction:column;align-items:center;border:#303060 solid 1px}
 .image_animal{position:absolute;width:400px;height:250px;object-fit: cover;}
 
 label{color:white;font-size:18px;}
+
+.other_link{color:black;text-decoration:none}
 
 element > ol{border-bottom:none;padding-left:0;padding-top:40px;}
 element{padding:50px;border-top:1px solid black;margin-top:50px;}

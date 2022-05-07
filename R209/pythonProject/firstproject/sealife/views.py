@@ -80,7 +80,9 @@ def delete(request, id):
 
 def deleteCategory(request, id):
     Category = models.Categories.objects.get(pk=id)
+    Species = models.Animal.objects.filter(category=models.Categories.objects.get(pk=id))
     Category.delete()
+    Species.delete()
     return HttpResponseRedirect("/sealife/search")
 
 def update(request, id):
