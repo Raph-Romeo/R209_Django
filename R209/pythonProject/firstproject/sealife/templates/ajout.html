@@ -1,20 +1,20 @@
 {% extends "main.html" %}
 {% block title %}
-Sealife
+Sealife - Add Species
 {% endblock %}
 {% block content %}
 {% if count > 0 %}
 <form method="post" action="/sealife/traitement/" enctype="multipart/form-data">
-<h1 class="add_title"> Add a Specie </h1>
+<h1 class="add_title" id="explore_text"> Add Species </h1>
 {% csrf_token %}
 {{ form.as_ul }}
-<input type="submit" value="SEND DATA">
-    <style>body{background:url(/sealife/media/water.jpg);background-size:cover;}</style>
+<input type="submit" value="CONFIRM">
+    <style>body{background:url(/sealife/media/water.jpg);background-size:cover;backdrop-filter:blur(12px)}</style>
 </form>
 {% else %}
 <form>
-<p class="error"> You must first add an animal before adding a specie type! <br> <a href="/sealife/ajoutCategory"> Click here to add an animal! </a></p>
-    <style>body{background:url(/sealife/media/water.jpg);background-size:cover;}</style>
+<p class="error"> You must first add an animal before adding a species! <br> <a href="/sealife/ajoutCategory"> Click here to add an animal! </a></p>
+    <style>body{background:url(/sealife/media/water.jpg);background-size:cover;backdrop-filter:blur(12px)}</style>
 </form>
 {% endif %}
 {% endblock %}

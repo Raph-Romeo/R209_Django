@@ -5,7 +5,7 @@ class AnimalForm(ModelForm):
     class Meta:
         model = models.Animal
         fields = ('category',
-                  'specie',
+                  'species',
                   'image',
                   'date_discovered',
                   'weight',
@@ -17,7 +17,7 @@ class AnimalForm(ModelForm):
                   'description')
         labels = {
             'category': _('Animal'),
-            'specie': _('Specie'),
+            'species': _('Species'),
             'image': _('Image'),
             'date_discovered': _('Date discovered (yyyy-mm-dd)'),
             'size': _('Size (cm)'),

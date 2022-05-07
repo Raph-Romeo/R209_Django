@@ -17,9 +17,9 @@ class Categories(models.Model):
 
 class Animal(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, null="true")
-    specie = models.CharField(max_length=100)
+    species = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images')
-    date_discovered = models.DateField(blank=False,default=django.utils.timezone.now())
+    date_discovered = models.DateField(blank=False,default=django.utils.timezone.now)
     size = models.IntegerField(blank=False)
     weight = models.IntegerField(blank=False)
     lifespan = models.IntegerField(blank=False)
@@ -28,8 +28,8 @@ class Animal(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        name = f"The {self.specie}"
+        name = f"The {self.species}"
         return name
 
     def dico(self):
-        return {"category": self.category, "specie": self.specie, "date_discovered": self.date_discovered, "size" : self.size, "weight" : self.weight, "lifespan" : self.lifespan , "depth" : self.depth , "locations" : self.locations , "description" : self.description , "image": self.image}
+        return {"category": self.category, "species": self.species, "date_discovered": self.date_discovered, "size" : self.size, "weight" : self.weight, "lifespan" : self.lifespan , "depth" : self.depth , "locations" : self.locations , "description" : self.description , "image": self.image}

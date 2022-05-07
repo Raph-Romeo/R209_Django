@@ -1,12 +1,12 @@
 {% extends "main.html" %}
 {% block title %}
-Sealife
+Sealife - Update
 {% endblock %}
 {% block content %}
 <form method="post" action="/sealife/traitementupdate/{{id}}" enctype="multipart/form-data">
 {% csrf_token %}
 {{ form.as_ul }}
 <input type="submit" value="UPDATE">
-<style>body{background:url(/sealife/media/wood.jpg)}</style>
+<style>body{background:url(/sealife/media/water.jpg);background-size:cover;backdrop-filter:blur(12px)}</style>
 </form>
 {% endblock %}

@@ -4,26 +4,26 @@ répertoire templates/myfirstapp/, il faudra ajouter le chemin d'accès avant le
 du fichierdonc extends "myfirstapp/main.html" -->
 <!-- définition de ce que contiendra la balise title du head -->
 {% block title %}
-Sealife - {{specie.category}}
+Sealife - {{species.species}}
 {% endblock %}
 {% block content %}
 <div class="affiche_specie">
-<h1 class="specie_name"> The {{specie.specie}} </h1>
-<p> This {{specie.category}} specie is known as the {{specie.specie}}. </p>
-<img class="specie_image" src="/sealife/media/{{specie.image}}"/>
-<p> It was discovered on {{specie.date_discovered}}
+<h1 class="specie_name"> The {{species.species}} </h1>
+<p> This {{species.category}} specie is known as the {{species.species}}. </p>
+<img class="specie_image" src="/sealife/media/{{species.image}}"/>
+<p> It was discovered on {{species.date_discovered}}
 <h1> Details: </h1>
-<p> It is found at a depth of {{specie.depth}} meters! And can be found in {{specie.locations}}.</p>
-<p> It can weigh up to {{specie.weight}} kgs, and is estimated to reach an average size of {{specie.size}} cm.</p>
-<p> It can live up to {{specie.lifespan}} years. </p>
+<p> It is found at a depth of {{species.depth}} meters! And can be found in {{species.locations}}.</p>
+<p> It can weigh up to {{species.weight}} kgs, and is estimated to reach an average size of {{species.size}} cm.</p>
+<p> It can live up to {{species.lifespan}} years. </p>
 <h1> Description: </h1>
-<p> {{specie.description}} </p>
+<p> {{species.description}} </p>
 {% if count > 1 %}
 <element>
-<h1> View other species of the {{specie.category}}: </h1>
+<h1> View other species of the {{species.category}}: </h1>
     <ol>
         {% for l in liste %}
-            {% if l != specie %}
+            {% if l != species %}
                 <li class="categories category_text"><h4 class="name_animal"> {{l}} </h4><a class="image_animal" href="/sealife/affiche/{{l.id}}"><img class="image_animal" src="/sealife{{l.image.url}}"/></a> {{l}} <div class="actions"><a class="category_text" href="/sealife/update/{{l.id}}"> ✏️ </a><a class="category_text" href="/sealife/delete/{{l.id}}"> ❌ </a></div></li>
             {% endif %}
         {%endfor%}

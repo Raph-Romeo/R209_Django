@@ -54,24 +54,24 @@ def home(request):
     return render(request, 'home.html', {'liste': animals,'count':animal_count})
 
 def category(request):
-    specie = list(models.Animal.objects.all())
-    return render(request,"category.html",{'liste': specie})
+    species = list(models.Animal.objects.all())
+    return render(request,"category.html",{'liste': species})
 
 def affiche(request, id):
-    specie = models.Animal.objects.get(pk=id)
-    species = list(models.Animal.objects.filter(category=models.Animal.objects.get(pk=id).category))
+    species = models.Animal.objects.get(pk=id)
+    species_list = list(models.Animal.objects.filter(category=models.Animal.objects.get(pk=id).category))
     count = models.Animal.objects.filter(category=models.Animal.objects.get(pk=id).category).count()
-    return render(request,"affiche.html",{"specie" : specie,"liste": species,"count": count})
+    return render(request,"affiche.html",{"species" : species,"liste": species_list,"count": count})
 
 def search(request):
-    specie = models.Categories.objects.all()
+    species = models.Categories.objects.all()
     animal_count = models.Categories.objects.all().count()
-    return render(request,"search.html",{"liste" : specie,"count":animal_count})
+    return render(request,"search.html",{"liste" : species,"count":animal_count})
 
 def afficheCategory(request, id):
     animal = models.Categories.objects.get(pk=id)
-    specie = list(models.Animal.objects.filter(category=models.Categories.objects.get(pk=id)))
-    return render(request,"category.html",{'liste': specie,'animal': animal})
+    species = list(models.Animal.objects.filter(category=models.Categories.objects.get(pk=id)))
+    return render(request,"category.html",{'liste': species,'animal': animal})
 
 def delete(request, id):
     specie = models.Animal.objects.get(pk=id)
@@ -84,8 +84,8 @@ def deleteCategory(request, id):
     return HttpResponseRedirect("/sealife/search")
 
 def update(request, id):
-    Specie = models.Animal.objects.get(pk=id)
-    form = AnimalForm(Specie.dico())
+    Species = models.Animal.objects.get(pk=id)
+    form = AnimalForm(Species.dico())
     return render(request, "update.html", {"form": form,"id":id})
 
 def updateCategory(request, id):
@@ -96,9 +96,9 @@ def updateCategory(request, id):
 def traitementupdate(request, id):
     form = AnimalForm(request.POST,request.FILES)
     if form.is_valid():
-        specie = form.save(commit=False)
-        specie.id = id
-        specie.save()
+        species = form.save(commit=False)
+        species.id = id
+        species.save()
         return HttpResponseRedirect("/sealife/search")
     else:
         return render(request, "update.html", {"form": form, "id": id})
@@ -106,9 +106,9 @@ def traitementupdate(request, id):
 def traitementupdateCategory(request, id):
     form = CategoryForm(request.POST,request.FILES)
     if form.is_valid():
-        specie = form.save(commit=False)
-        specie.id = id
-        specie.save()
+        species = form.save(commit=False)
+        species.id = id
+        species.save()
         return HttpResponseRedirect("/sealife/search")
     else:
         return render(request, "update.html", {"form": form, "id": id})
