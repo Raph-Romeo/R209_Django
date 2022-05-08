@@ -14,7 +14,7 @@ def ajout(request):
             return HttpResponseRedirect("/sealife/search")
         else:
             return render(request,"ajout.html",{"form": form})
-    else :
+    else:
         form = AnimalForm()
         return render(request,"ajout.html",{"form" : form, "count": models.Categories.objects.all().count()})
 
