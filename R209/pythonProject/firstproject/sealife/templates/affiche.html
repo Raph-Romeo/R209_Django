@@ -13,7 +13,7 @@ Sealife - {{species.species}}
 <img class="specie_image" src="/sealife/media/{{species.image}}"/>
 <p> It was discovered on {{species.date_discovered}}
 <h1> Details: </h1>
-<p> It is found at a depth of {{species.depth}} meters! And can be found in {{species.locations}}.</p>
+<p> It {% if species.depth > 0 %} is found at a depth of {{species.depth}} meters, {%else%} lives on the surface, {% endif %} and can be found in {{species.locations}}.</p>
 <p> It can weigh up to {{species.weight}} kgs, and is estimated to reach an average size of {{species.size}} cm.</p>
 <p> It can live up to {{species.lifespan}} years. </p>
 <h1> Description: </h1>
