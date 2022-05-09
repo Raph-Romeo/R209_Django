@@ -21,7 +21,7 @@ class Animal(models.Model):
     image = models.ImageField(upload_to='images')
     date_discovered = models.DateField(blank=False,default=django.utils.timezone.now)
     size = models.IntegerField(blank=False)
-    weight = models.IntegerField(blank=False)
+    weight = models.FloatField(blank=False)
     lifespan = models.IntegerField(blank=False)
     depth = models.IntegerField(blank=False)
     locations = models.TextField(null=True, blank=True)
