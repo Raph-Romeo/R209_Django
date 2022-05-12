@@ -127,7 +127,7 @@ select{width:150%;font-size:25px;}
 input[type="file"]{height:40px;font-size:25px;color:white;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 input[type="submit"]{width:20%;background:#303060;color:white;border:none;border-radius:5px;border:1px solid #222;font-family:arial}
 
-.affiche > ol{min-height:80vh;margin-top:20px;width:90%;}
+.affiche > ol{min-height:80vh;margin-top:20px;width:90%;align-content:center;}
 .affiche > h1 , .affiche > p{padding-right:10%;padding-left:10%}
 .affiche > h1{padding-bottom:20px}
 .add_title{font-size:2.6em}
